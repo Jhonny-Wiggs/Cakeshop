@@ -1,0 +1,59 @@
+
+.schedule-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff8e1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+    margin-top: 100px;
+    background-image: linear-gradient(to left, #86B6F6, #EEF5FF, #86B6F6);
+}
+
+body{
+    background-image: url('blue-cafe2.jpg');
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #176B87;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #EEF5FF;
+}
+
+
+.additional-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #EEF5FF;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #86B6F6;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John's Bakery - Custom Cake Order</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Order Your Custom Cake</h1>
+        <form action="#" method="post" id="cakeOrderForm">
+            <label for="flavor">Choose Flavor:</label>
+            <div class="options-container">
+                <label>
+                    <input type="radio" name="flavor" value="vanilla" data-price="165" required>
+                    <img src="vanilla.jpg" alt="Vanilla Cake">
+                    <span>Vanilla</span>
+                </label>
+                <label>
+                    <input type="radio" name="flavor" value="chocolate" data-price="200" required>
+                    <img src="chocolate.jpg" alt="Chocolate Cake">
+                    <span>Chocolate</span>
+                </label>
+                <label>
+                    <input type="radio" name="flavor" value="red-velvet" data-price="225" required>
+                    <img src="red-velvet.jpg" alt="Red Velvet Cake">
+                    <span>Red Velvet</span>
+                </label>
+                <label>
+                    <input type="radio" name="flavor" value="strawberry" data-price="500" required>
+                    <img src="strawberry.jpg" alt="Strawberry Cake">
+                    <span>Strawberry</span>
+                </label>
+                <label>
+                    <input type="radio" name="flavor" value="lemon" data-price="90" required>
+                    <img src="lemon.jpg" alt="Lemon Cake">
+                    <span>Lemon</span>
+                </label>
+            </div>
+
+            <label for="size">Choose Size:</label>
+            <div class="options-container">
+                <label>
+                    <input type="radio" name="size" value="6-inch" data-price="90" required>
+                    <span>6 inch</span>
+                </label>
+                <label>
+                    <input type="radio" name="size" value="8-inch" data-price="120" required>
+                    <span>8 inch</span>
+                </label>
+                <label>
+                    <input type="radio" name="size" value="10-inch" data-price="150" required>
+                    <span>10 inch</span>
+                </label>
+                <label>
+                    <input type="radio" name="size" value="12-inch" data-price="200" required>
+                    <span>12 inch</span>
+                </label>
+            </div>
+
+            <label for="design">Choose Design:</label>
+            <div class="options-container">
+                <label>
+                    <input type="radio" name="design" value="Yin-Yang" data-price="600" required>
+                    <img src="yin-yang.jpg" alt="Yin-Yang Cake">
+                    <span>Yin-Yang</span>
+                </label>
+                <label>
+                    <input type="radio" name="design" value="Mousse" data-price="1200" required>
+                    <img src="mousse.jpg" alt="Mousse Cake">
+                    <span>Mousse Cake</span>
+                </label>
+                <label>
+                    <input type="radio" name="design" value="Bed of Roses" data-price="600" required>
+                    <img src="bed-roses.jpg" alt="Bed of Roses Cake">
+                    <span>Bed of Roses</span>
+                </label>
+                <label>
+                    <input type="radio" name="design" value="Classy" data-price="960" required>
+                    <img src="classy.jpg" alt="Classy Cake">
+                    <span>Classy</span>
+                </label>
+                <label>
+                    <input type="radio" name="design" value="Techy-Savvy" data-price="20000" required>
+                    <img src="techy-cake.jpg" alt="Techy-Savvy Cake">
+                    <span>Techy-Savvy</span>
+                </label>
+            </div>
+
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="notes">Additional Notes (Optional):</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Describe your custom design (optional)"></textarea>
+
+            <div id="totalPrice">Total Price: $0</div>
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('cakeOrderForm');
+        const totalPriceDiv = document.getElementById('totalPrice');
+
+        function calculateTotal() {
+            const selectedFlavor = document.querySelector('input[name="flavor"]:checked');
+            const selectedSize = document.querySelector('input[name="size"]:checked');
+            const selectedDesign = document.querySelector('input[name="design"]:checked');
+
+            const flavorPrice = selectedFlavor ? parseFloat(selectedFlavor.dataset.price) : 0;
+            const sizePrice = selectedSize ? parseFloat(selectedSize.dataset.price) : 0;
+            const designPrice = selectedDesign ? parseFloat(selectedDesign.dataset.price) : 0;
+
+            const total = flavorPrice + sizePrice + designPrice;
+            totalPriceDiv.textContent = `Total Price: $${total}`;
+        }
+
+        form.addEventListener('change', calculateTotal);
+    </script>
+</body>
+</html> 
